@@ -7,3 +7,8 @@ const supabaseUrl = 'https://yfsgybexuxhbcgjsgijb.supabase.co';
 const supabasePublishableKey = 'sb_publishable_Zm87h5-i3B5GcJGqHnSpkw_AG9jpTST';
 
 const avatarsBucket = 'avatars';
+
+/// Custom URL scheme registered in ios/Runner/Info.plist (CFBundleURLTypes)
+/// and android/app/src/main/AndroidManifest.xml, used to deep-link back into
+/// the app from the magic-link email.
+const authCallbackUrl = 'com.example.supabasephotoapp://login-callback/';

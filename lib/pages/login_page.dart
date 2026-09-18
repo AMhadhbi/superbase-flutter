@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../main.dart';
+import '../utils/constants.dart';
 import 'account_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -19,7 +20,10 @@ class _LoginPageState extends State<LoginPage> {
   Future<void> _signIn() async {
     setState(() => _isLoading = true);
     try {
-      await supabase.auth.signInWithOtp(email: _emailController.text.trim());
+      await supabase.auth.signInWithOtp(
+        email: _emailController.text.trim(),
+        emailRedirectTo: authCallbackUrl,
+      );
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Check your email for a login link')),
